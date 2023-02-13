@@ -22,7 +22,7 @@ const client = new MongoClient(MONGO_URL)
 await client.connect()
 
 
-const PORT =4001
+const PORT = process.env.PORT
 const server = http.createServer(app)
 
 const io = new Server (server,{
