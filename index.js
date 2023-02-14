@@ -16,7 +16,7 @@ import autogenpasswordRouter from './routers/autogenpassword.route.js'
 
 const app = express()
 
-const MONGO_URL = "mongodb+srv://gokulakrishnan:Gokul4580@cluster0.pecljyv.mongodb.net"
+const MONGO_URL = process.env.MONGO_URL
 
 const client = new MongoClient(MONGO_URL)
 await client.connect()
