@@ -27,13 +27,13 @@ const server = http.createServer(app)
 
 const io = new Server (server,{
     cors:{
-        origin:'http://localhost:3000',
+        origin:'https://auction-77g0.onrender.com',
         methods:['GET','POST']
     }
 });
 app.use(express.json())
 app.use(cors({
-    origin:'http://localhost:3000',
+    origin:'https://auction-77g0.onrender.com',
     credentials:true
 
 }))
