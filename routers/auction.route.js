@@ -53,7 +53,7 @@ Router.post("/signup",async function (request,response){
 Router.post("/login",async function (request,response){
     const {email,password}=request.body
     
-
+respons.send("ok")
     // getting username from database to check it already exit
     const userFromDB = await getUserName(email)
 
