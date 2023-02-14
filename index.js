@@ -32,11 +32,7 @@ const io = new Server (server,{
     }
 });
 app.use(express.json())
-app.use(cors({
-    origin:'https://strong-biscochitos-e35744.netlify.app',
-    credentials:true
-
-}))
+app.use(cors())
 
 
 async function genHashedPassword (password){
