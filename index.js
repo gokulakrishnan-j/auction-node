@@ -27,13 +27,13 @@ const server = http.createServer(app)
 
 const io = new Server (server,{
     cors:{
-        origin:'https://auction-77g0.onrender.com',
+        origin:'https://strong-biscochitos-e35744.netlify.app',
         methods:['GET','POST']
     }
 });
 app.use(express.json())
 app.use(cors({
-    origin:'https://auction-77g0.onrender.com',
+    origin:'https://strong-biscochitos-e35744.netlify.app',
     credentials:true
 
 }))
