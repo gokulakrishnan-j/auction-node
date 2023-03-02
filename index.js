@@ -31,6 +31,7 @@ const io = new Server (server,{
         methods:['GET','POST']
     }
 });
+
 app.use(express.json())
 app.use(cors())
 
