@@ -53,13 +53,11 @@ Router.post("/signup",async function (request,response){
 
 Router.post("/login",async function (request,response){
     const {email,password}=request.body
-   
-    
 
     // getting username from database to check it already exit
     const userFromDB = await getUserName(email)
 
-    if(! userFromDB){
+    if(!userFromDB){
         response.status(401).send("Invalid credentials")
     }
     else{
