@@ -27,7 +27,7 @@ const server = http.createServer(app)
 
 const io = new Server (server,{
     cors:{
-        origin:'https://strong-biscochitos-e35744.netlify.app',
+        origin:'http://localhost:3000',
         methods:['GET','POST']
     }
 });
