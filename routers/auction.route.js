@@ -50,26 +50,29 @@ Router.post("/signup",async function (request,response){
     }
  })
 
+
 Router.post("/login",async function (request,response){
     const {email,password}=request.body
+   
     
+
     // getting username from database to check it already exit
     const userFromDB = await getUserName(email)
 
-    if(!userFromDB){
+    if(! userFromDB){
         response.status(401).send("Invalid credentials")
     }
     else{
         const storedDBPassword = userFromDB.password
-
+        
         const isPasswordMatch= await bcrypt.compare(password,storedDBPassword)
 
         if(isPasswordMatch){
             const token = jwt.sign({id:userFromDB._id},process.env.SECRET_KEY)
 
             const storeTokenInDB = await storingInDb(userFromDB, token)
-            response.send({message : "successful login",
-        token:token})
+           
+            response.send({message : "successful login"})
 
 
         }
