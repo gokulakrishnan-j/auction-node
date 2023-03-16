@@ -68,7 +68,7 @@ Router.post("/login",async function (request,response){
         const isPasswordMatch= await bcrypt.compare(password,storedDBPassword)
 
         if(isPasswordMatch){
-            const token = jwt.sign({id:userFromDB._id},process.env.SECERET_KEY)
+            const token = jwt.sign({id:userFromDB._id},process.env.SECRET_KEY)
 
             const storeTokenInDB = await storingInDb(userFromDB, token)
            
