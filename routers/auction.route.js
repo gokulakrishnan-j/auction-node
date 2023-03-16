@@ -1,6 +1,8 @@
 import { auth,jwt,genHashedPassword ,bcrypt} from "../index.js";
 import express from 'express'
 import { creatingUsers, getingUserName, storingInDb, gettingToken, deletingToken } from "../service/auction.service.js";
+import * as dotenv from "dotenv"
+dotenv.config()
 
 const Router = express.Router()
 
@@ -66,7 +68,7 @@ Router.post("/login",async function (request,response){
         const isPasswordMatch= await bcrypt.compare(password,storedDBPassword)
 
         if(isPasswordMatch){
-            const token = jwt.sign({id:userFromDB._id},"auctionplayer")
+            const token = jwt.sign({id:userFromDB._id},process.env.SECRET_KEY)
 
             const storeTokenInDB = await storingInDb(userFromDB, token)
            
